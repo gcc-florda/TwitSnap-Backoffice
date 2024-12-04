@@ -1,5 +1,5 @@
 export const API_USER_BASE_URL = ""
-export const API_TWITSNAP_BASE_URL = process.env.NEXT_PUBLIC_API_TWITSNAP_BASE_URL;;
+export const API_TWITSNAP_BASE_URL = process.env.NEXT_PUBLIC_API_TWITSNAP_BASE_URL || 'https://api-twitsnaps-78063251e6a3.herokuapp.com/';
 
 export const stdFetch = async (url: string, config = {}) => {
     try {
