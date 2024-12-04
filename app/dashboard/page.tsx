@@ -6,12 +6,20 @@ import { getMetrics } from "@/src/modules/Dashboard";
 
 const DashboardPage = () => {
   const [metricsData, setMetricsData] = useState(null);
-  const token = document.cookie
-    .split('; ')
-    .find(row => row.startsWith('token='))
-    ?.split('=')[1] || '';
+  const [token, setToken] = useState('');
+
+  useEffect(() => {
+    if (typeof window != "undefined") {
+      const tokenValue = document.cookie
+        .split("; ")
+        .find(row => row.startsWith("token="))
+        ?.split("=")[1] || '';
+      setToken(tokenValue);
+    }
+  }, []);
 
   const getAppMetrics = useCallback(async () => {
+    if (!token) return;
     try {
       const response = await getMetrics(token);
       if (response) {

@@ -8,7 +8,7 @@ import { blockTwitsnap, getTwitsnap, unblockUser } from "../../actions";
 import { ChevronLeftIcon } from '@chakra-ui/icons';
 
 const Twitsnap = () => {
-    const { id } = useParams();
+    const { id } = useParams() as { id: string };
     const [twitsnap, setTwitsnap] = useState<TwitsnapDetails | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);

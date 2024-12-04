@@ -8,7 +8,8 @@ import { ChevronLeftIcon } from '@chakra-ui/icons';
 import { ServiceDetail } from "../Services";
 
 export const Service = () => {
-    const { id } = useParams();
+    const params = useParams<{ id: string }>();
+    const id = params?.id || '';
     const [service, setService] = useState<ServiceDetail | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);

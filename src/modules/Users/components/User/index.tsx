@@ -10,7 +10,8 @@ import { blockUser, getTwitsnapsByUserId, getUserById, registerUserAdmin, unbloc
 import { UserVerificationModal } from '../UserVerificationModal';
 
 const User = () => {
-  const { id } = useParams();
+  const params = useParams<{ id: string }>();
+  const id = params?.id;
   const [user, setUser] = useState<UserProfile | null>(null);
   const [userTweetsnaps, setUserTweetsnaps] = useState<TwitsnapDetails[]>([]);
   const [loading, setLoading] = useState(true);
